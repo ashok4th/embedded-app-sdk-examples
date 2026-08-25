@@ -1,9 +1,16 @@
 import {IGuildsMembersRead} from '../types';
-import {Types} from '@discord/embedded-app-sdk';
 
 interface GetUserDisplayNameArgs {
   guildMember: IGuildsMembersRead | null;
-  user: Partial<Types.User>;
+  // Only the fields this function actually reads -- narrower than
+  // Partial<Types.User>, which pulls in avatar_decoration_data typing that
+  // isn't consistent between the SDK's exported Types.User and the shape
+  // some event payloads (e.g. ACTIVITY_INSTANCE_PARTICIPANTS_UPDATE) send.
+  user: {
+    username: string;
+    discriminator: string;
+    global_name?: string | null;
+  };
 }
 
 export function getUserDisplayName({guildMember, user}: GetUserDisplayNameArgs) {

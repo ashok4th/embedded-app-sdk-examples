@@ -26,6 +26,7 @@ import VoiceState from './pages/VoiceState';
 import VisibilityListener from './pages/VisibilityListener';
 import WindowSizeTracker from './pages/WindowSizeTracker';
 import GamepadTester from './pages/GamepadTester';
+import GetRelationships from './pages/GetRelationships';
 
 import * as S from './AppStyles';
 import SafeAreas from './pages/SafeAreas';
@@ -46,6 +47,7 @@ import GetActivityInstance from "./pages/GetActivityInstance";
 import CloseActivity from "./pages/CloseActivity";
 
 import discordSdk from './discordSdk';
+import InviteUserEmbedded from './pages/InviteUserEmbedded';
 
 // Add contexts here
 export default function App(): React.ReactElement {
@@ -112,6 +114,11 @@ const routes: Record<string, AppRoute> = {
     name: 'Get Platform Behaviors',
     component: GetPlatformBehaviors,
   },
+  getRelationships: {
+    path: '/get-relationships',
+    name: 'Get Relationships',
+    component: GetRelationships,
+  },
   getSkus: {
     path: '/get-skus',
     name: 'Get Skus',
@@ -121,6 +128,11 @@ const routes: Record<string, AppRoute> = {
     path: '/initiateImageUpload',
     name: 'Initiate Image Upload',
     component: InitiateImageUpload,
+  },
+  inviteUserEmbedded: {
+    path: '/invite-user-embedded',
+    name: 'Invite User',
+    component: InviteUserEmbedded,
   },
   openExternalLink: {
     path: '/open-external-link',
